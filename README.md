@@ -19,9 +19,9 @@ per-race progress saved by SteamID.
 ## Features
 
 - **Race system with reflection-based registration.** A new class deriving from `Race` is picked
-  up automatically — no registry to edit, no DI wiring.
+	up automatically — no registry to edit, no DI wiring.
 - **16 levels, one skill point each.** Every race has exactly 4 abilities (2 passive, 1 active,
-  1 ultimate) with 4 ranks apiece — the points always add up.
+	1 ultimate) with 4 ranks apiece — the points always add up.
 - **Progress is stored per race**, keyed by SteamID. Switching races does not wipe the old build.
 - **Auto-distribution of skill points** for players who do not want to think about builds.
 - **Damage is modified before it lands** — crits, dodge, block, damage reduction, lifesteal.
@@ -111,7 +111,7 @@ SteamCMD is Valve's command-line downloader; the server itself is fetched with i
 
 1. Download the archive for your OS from [developer.valvesoftware.com/wiki/SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD).
 2. Unpack it into its own folder, e.g. `C:\steamcmd`. **Not into Downloads or the Desktop** —
-   SteamCMD unpacks a few hundred more megabytes next to itself.
+	SteamCMD unpacks a few hundred more megabytes next to itself.
 
 ### Step 2. Download the CS2 server
 
@@ -133,11 +133,11 @@ When it finishes, `C:\cs2server\game\bin\win64\cs2.exe` must exist.
 
 1. Open the [Metamod:Source downloads page](https://www.sourcemm.net/downloads.php).
 2. Take the **`dev` branch, version 2.x**, for your platform (Windows or Linux).
-   The stable 1.x branch does not work with CS2 — this is the most common mistake at this step.
+	The stable 1.x branch does not work with CS2 — this is the most common mistake at this step.
 3. Unpack so that the archive's `addons` folder lands in `C:\cs2server\game\csgo\`.
-   You should end up with `C:\cs2server\game\csgo\addons\metamod\`.
+	You should end up with `C:\cs2server\game\csgo\addons\metamod\`.
 4. Open `C:\cs2server\game\csgo\gameinfo.gi` in a text editor, find the `SearchPaths` block and add
-   `Game csgo/addons/metamod` **above** the `Game csgo` line:
+	`Game csgo/addons/metamod` **above** the `Game csgo` line:
 
 ```
 SearchPaths
@@ -159,10 +159,10 @@ SearchPaths
 1. Open the [CounterStrikeSharp releases](https://github.com/roflmuffin/CounterStrikeSharp/releases).
 2. Take the **`with-runtime`** build — it ships .NET inside, so you do not have to install it separately.
 3. **Pick the right platform carefully.** The archive names look alike and grabbing the Linux build on
-   Windows is easy to do. It breaks the install silently, and the only fix is unpacking the correct
-   build over it — see "Troubleshooting" below.
+	Windows is easy to do. It breaks the install silently, and the only fix is unpacking the correct
+	build over it — see "Troubleshooting" below.
 4. Unpack it the same way as Metamod: the archive's `addons` folder goes into `C:\cs2server\game\csgo\`.
-   You should end up with `C:\cs2server\game\csgo\addons\counterstrikesharp\`.
+	You should end up with `C:\cs2server\game\csgo\addons\counterstrikesharp\`.
 
 On Windows, steps 3 and 4 are scripted in this repository — it unpacks both archives and registers
 Metamod in `gameinfo.gi` without a BOM:
@@ -221,7 +221,7 @@ To join your own server: open the console in game (`~`) and type `connect 127.0.
 While `+sv_lan 1` is in the command line, only you can see the server. To get it into the server browser:
 
 1. Get a **GSLT token** at [steamcommunity.com/dev/managegameservers](https://steamcommunity.com/dev/managegameservers),
-   app id `730`.
+	app id `730`.
 2. Drop `+sv_lan 1` and add `+sv_setsteamaccount YOUR_TOKEN`.
 3. Forward port `27015` (TCP and UDP) on your router if the server is at home.
 
@@ -251,16 +251,16 @@ Collected from things that actually went wrong on a live server.
 
 - Mod and CounterStrikeSharp errors — `game\csgo\addons\counterstrikesharp\logs\log-cssharp<date>.txt`
 - With `-condebug`, the server console goes **not** to `game\csgo\console.log` as you would expect,
-  but to `game\csgo\addons\metamod\console.log`
+	but to `game\csgo\addons\metamod\console.log`
 - If the CSSharp log cuts off and restarts a few seconds later with "CounterStrikeSharp is starting up",
-  that is a native crash, not a C# exception
+	that is a native crash, not a C# exception
 
 ## Configuration
 
 On first start the plugin creates two files next to itself:
 
 - `warcraft_config.json` — XP rates, save interval, admin list, map fences, welcome sounds.
-  See [`warcraft_config.example.json`](warcraft_config.example.json) for every key with sane values.
+	See [`warcraft_config.example.json`](warcraft_config.example.json) for every key with sane values.
 - `warcraft_players.json` — player progress. Back it up; do not commit it.
 
 Put your own SteamID64 into `Admins` to get access to the admin menu.
@@ -275,20 +275,20 @@ Nothing to register — the registry finds the class by reflection.
 ```csharp
 public sealed class MyRace : Race
 {
-    public override string Id => "myrace";        // never change after release: progress is keyed by it
-    public override string Name => "My Race";
-    public override string Description => "What it does";
+	public override string Id => "myrace";        // never change after release: progress is keyed by it
+	public override string Name => "My Race";
+	public override string Description => "What it does";
 
-    public override IReadOnlyList<Ability> Abilities { get; } =
-    [
-        new Ability { Name = "Passive 1", Description = "...", Kind = AbilityKind.Passive },
-        new Ability { Name = "Passive 2", Description = "...", Kind = AbilityKind.Passive },
-        new Ability { Name = "Active",    Description = "...", Kind = AbilityKind.Active,   Cooldown = 25f },
-        new Ability { Name = "Ultimate",  Description = "...", Kind = AbilityKind.Ultimate, RequiredLevel = 6, Cooldown = 60f },
-    ];
+	public override IReadOnlyList<Ability> Abilities { get; } =
+	[
+		new Ability { Name = "Passive 1", Description = "...", Kind = AbilityKind.Passive },
+		new Ability { Name = "Passive 2", Description = "...", Kind = AbilityKind.Passive },
+		new Ability { Name = "Active",    Description = "...", Kind = AbilityKind.Active,   Cooldown = 25f },
+		new Ability { Name = "Ultimate",  Description = "...", Kind = AbilityKind.Ultimate, RequiredLevel = 6, Cooldown = 60f },
+	];
 
-    public override void OnSpawn(WarcraftPlayer player) { }
-    public override bool OnActivateAbility(WarcraftPlayer player) => false;
+	public override void OnSpawn(WarcraftPlayer player) { }
+	public override bool OnActivateAbility(WarcraftPlayer player) => false;
 }
 ```
 
@@ -298,7 +298,7 @@ Rules that are easy to forget:
 - The sum of all `MaxRank` values must equal `XpTable.MaxLevel` (16), or the points will not add up.
 - Exactly one `Kind = Active` and one `Kind = Ultimate` — `!ability` and `!ult` are bound to them.
 - Use `Effects` (healing, knockback, invisibility, target search) instead of touching engine
-  schema fields directly.
+	schema fields directly.
 - Permanent speed bonuses go into `BaseSpeedMultiplier`, temporary ones into `TempSpeedMultiplier`.
 
 ## Project layout

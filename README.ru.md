@@ -15,9 +15,9 @@
 ## Что умеет
 
 - **Система рас с автоматической регистрацией.** Новый класс-наследник `Race` подхватывается сам —
-  ни реестра править, ни зависимостей прописывать.
+	ни реестра править, ни зависимостей прописывать.
 - **16 уровней, по очку навыка за уровень.** У каждой расы ровно 4 способности (2 пассивки,
-  активка, ультимейт) по 4 ранга — очки всегда сходятся.
+	активка, ультимейт) по 4 ранга — очки всегда сходятся.
 - **Прогресс сохраняется отдельно по каждой расе.** Смена расы не стирает старую прокачку.
 - **Автораспределение очков** для тех, кто не хочет думать над билдом.
 - **Правка урона до его применения** — крит, уклонение, блок, снижение урона, вампиризм.
@@ -108,7 +108,7 @@ SteamCMD — консольная качалка Valve, через неё ска
 
 1. Скачайте архив под свою систему с [developer.valvesoftware.com/wiki/SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD).
 2. Распакуйте в отдельную папку, например `C:\steamcmd`. **Не в «Загрузки» и не на рабочий стол** —
-   SteamCMD распакует рядом с собой ещё пару сотен мегабайт.
+	SteamCMD распакует рядом с собой ещё пару сотен мегабайт.
 
 ### Шаг 2. Скачать сервер CS2
 
@@ -130,11 +130,11 @@ C:\steamcmd\steamcmd.exe +force_install_dir C:\cs2server +login anonymous +app_u
 
 1. Откройте [страницу загрузок Metamod:Source](https://www.sourcemm.net/downloads.php).
 2. Возьмите **ветку `dev`, версию 2.x**, архив под свою платформу (Windows или Linux).
-   Стабильная ветка 1.x с CS2 не работает — это самая частая ошибка на этом шаге.
+	Стабильная ветка 1.x с CS2 не работает — это самая частая ошибка на этом шаге.
 3. Распакуйте архив так, чтобы папка `addons` из него легла в `C:\cs2server\game\csgo\`.
-   Должен получиться путь `C:\cs2server\game\csgo\addons\metamod\`.
+	Должен получиться путь `C:\cs2server\game\csgo\addons\metamod\`.
 4. Откройте `C:\cs2server\game\csgo\gameinfo.gi` в текстовом редакторе, найдите блок
-   `SearchPaths` и добавьте строку `Game csgo/addons/metamod` **выше** строки `Game csgo`:
+	`SearchPaths` и добавьте строку `Game csgo/addons/metamod` **выше** строки `Game csgo`:
 
 ```
 SearchPaths
@@ -156,10 +156,10 @@ SearchPaths
 1. Откройте [релизы CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp/releases).
 2. Возьмите сборку **`with-runtime`** — она несёт .NET внутри, ставить его отдельно не нужно.
 3. **Внимательно выберите платформу.** Архивы называются похоже, и скачать linux-сборку на
-   Windows очень легко. Ломается всё молча, а чинится только распаковкой правильной сборки
-   поверх — подробности ниже, в «Если что-то не работает».
+	Windows очень легко. Ломается всё молча, а чинится только распаковкой правильной сборки
+	поверх — подробности ниже, в «Если что-то не работает».
 4. Распакуйте так же, как Metamod: папка `addons` из архива ложится в `C:\cs2server\game\csgo\`.
-   Должен получиться путь `C:\cs2server\game\csgo\addons\counterstrikesharp\`.
+	Должен получиться путь `C:\cs2server\game\csgo\addons\counterstrikesharp\`.
 
 Шаги 3 и 4 на Windows делает скрипт из этого репозитория — распакует оба архива и сам пропишет
 Metamod в `gameinfo.gi` без BOM:
@@ -219,7 +219,7 @@ cs2.exe -dedicated -console -condebug -port 27015 +sv_lan 1 +map de_dust2 +maxpl
 Пока в команде стоит `+sv_lan 1`, сервер видите только вы. Чтобы он попал в браузер серверов:
 
 1. Получите **GSLT-токен** на [steamcommunity.com/dev/managegameservers](https://steamcommunity.com/dev/managegameservers),
-   код игры — `730`.
+	код игры — `730`.
 2. Уберите `+sv_lan 1` и добавьте `+sv_setsteamaccount ВАШ_ТОКЕН`.
 3. Пробросьте порт `27015` (TCP и UDP) на роутере, если сервер стоит дома.
 
@@ -249,16 +249,16 @@ cs2.exe -dedicated -console -condebug -port 27015 +sv_lan 1 +map de_dust2 +maxpl
 
 - Ошибки мода и CounterStrikeSharp — `game\csgo\addons\counterstrikesharp\logs\log-cssharp<дата>.txt`
 - Консоль сервера с ключом `-condebug` пишется **не** в `game\csgo\console.log`, как можно
-  подумать, а в `game\csgo\addons\metamod\console.log`
+	подумать, а в `game\csgo\addons\metamod\console.log`
 - Если лог CSSharp обрывается и через несколько секунд начинается заново со строки
-  «CounterStrikeSharp is starting up» — это нативный краш, а не ошибка в C#
+	«CounterStrikeSharp is starting up» — это нативный краш, а не ошибка в C#
 
 ## Настройка
 
 При первом запуске плагин создаёт рядом с собой два файла:
 
 - `warcraft_config.json` — опыт, интервал сохранения, список админов, границы карт, приветствия.
-  Все ключи с разумными значениями — в [`warcraft_config.example.json`](warcraft_config.example.json).
+	Все ключи с разумными значениями — в [`warcraft_config.example.json`](warcraft_config.example.json).
 - `warcraft_players.json` — прогресс игроков. Его надо бэкапить и нельзя коммитить.
 
 Впишите свой SteamID64 в `Admins`, чтобы получить доступ к админскому меню.
@@ -273,20 +273,20 @@ cs2.exe -dedicated -console -condebug -port 27015 +sv_lan 1 +map de_dust2 +maxpl
 ```csharp
 public sealed class MyRace : Race
 {
-    public override string Id => "myrace";       // не менять после релиза: по нему хранится прогресс
-    public override string Name => "Моя раса";
-    public override string Description => "Что она умеет";
+	public override string Id => "myrace";       // не менять после релиза: по нему хранится прогресс
+	public override string Name => "Моя раса";
+	public override string Description => "Что она умеет";
 
-    public override IReadOnlyList<Ability> Abilities { get; } =
-    [
-        new Ability { Name = "Пассивка", Description = "...", Kind = AbilityKind.Passive },
-        new Ability { Name = "Пассивка 2", Description = "...", Kind = AbilityKind.Passive },
-        new Ability { Name = "Активка", Description = "...", Kind = AbilityKind.Active, Cooldown = 25f },
-        new Ability { Name = "Ульта", Description = "...", Kind = AbilityKind.Ultimate, RequiredLevel = 6, Cooldown = 60f },
-    ];
+	public override IReadOnlyList<Ability> Abilities { get; } =
+	[
+		new Ability { Name = "Пассивка", Description = "...", Kind = AbilityKind.Passive },
+		new Ability { Name = "Пассивка 2", Description = "...", Kind = AbilityKind.Passive },
+		new Ability { Name = "Активка", Description = "...", Kind = AbilityKind.Active, Cooldown = 25f },
+		new Ability { Name = "Ульта", Description = "...", Kind = AbilityKind.Ultimate, RequiredLevel = 6, Cooldown = 60f },
+	];
 
-    public override void OnSpawn(WarcraftPlayer player) { }
-    public override bool OnActivateAbility(WarcraftPlayer player) => false;
+	public override void OnSpawn(WarcraftPlayer player) { }
+	public override bool OnActivateAbility(WarcraftPlayer player) => false;
 }
 ```
 
@@ -295,9 +295,9 @@ public sealed class MyRace : Race
 - **Порядок способностей менять нельзя** — ранги хранятся по индексу. Новые дописывайте в конец.
 - Сумма `MaxRank` всех способностей должна равняться `XpTable.MaxLevel` (16), иначе очки не сойдутся.
 - Ровно одна способность с `Kind = Active` и одна с `Kind = Ultimate` — на них завязаны
-  `!ability` и `!ult`.
+	`!ability` и `!ult`.
 - Для эффектов пользуйтесь `Effects` (лечение, отбрасывание, невидимость, поиск целей),
-  а не лезьте в схему движка напрямую.
+	а не лезьте в схему движка напрямую.
 - Постоянные бонусы скорости ставьте в `BaseSpeedMultiplier`, временные — в `TempSpeedMultiplier`.
 
 ## Структура проекта
