@@ -1,0 +1,27 @@
+{
+  "XpPerKill": 30,
+  "XpHeadshotBonus": 10,
+  "XpKnifeBonus": 30,
+  "XpPerAssist": 15,
+  "XpRoundWin": 15,
+  "XpPerRound": 20,
+  "XpSurvived": 10,
+  "SaveIntervalSeconds": 30,
+  "ShowRaceMenuOnFirstJoin": true,
+  "RoundTimeMinutes": 2.5,
+  "MapVoteFreezeSeconds": 0,
+  "AfkSeconds": 300,
+  "HintRepeatSeconds": 120,
+  "HintRepeats": 1,
+  "AnnounceLevelUps": true,
+  "DiscordUrl": "",
+  "DisableUltimatesInPistolRounds": true,
+  "Admins": [],
+  "OutOfBoundsFence": {
+    "awp_lego_2": 500
+  },
+  "WelcomeSoundNew": "",
+  "WelcomeSoundReturning": [],
+  "WelcomeSoundHours": 24.0,
+  "WelcomeSoundVolume": 1.0
+}

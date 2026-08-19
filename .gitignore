@@ -1,0 +1,19 @@
+# Сборка .NET
+bin/
+obj/
+*.user
+*.suo
+
+# Данные мода, создаются на сервере
+warcraft_players.json
+warcraft_players.json.*
+warcraft_config.json
+
+# Среды разработки
+.vs/
+.idea/
+.vscode/
+
+# Пакеты для заливки на хостинг — собираются из исходников
+docs/*.zip
+docs/*.dll

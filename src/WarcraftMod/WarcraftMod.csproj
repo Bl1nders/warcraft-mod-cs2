@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>WarcraftMod</AssemblyName>
+    <RootNamespace>WarcraftMod</RootNamespace>
+    <!-- Требуется для плагинов CounterStrikeSharp: копирует зависимости рядом с DLL -->
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      ExcludeAssets=runtime: API-сборку и её зависимости предоставляет сам CounterStrikeSharp.
+      Если положить их рядом с плагином, хост и плагин получат разные экземпляры одних и тех же
+      типов, и плагин не загрузится. Компилируемся против пакета, но не копируем его в вывод.
+    -->
+    <PackageReference Include="CounterStrikeSharp.API" Version="1.0.371" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+</Project>
