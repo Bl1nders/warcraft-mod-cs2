@@ -16,6 +16,28 @@ per-race progress saved by SteamID.
 
 ---
 
+## Screenshots
+
+The menus are drawn as text in the world, not as a client-side HUD — nothing to install on
+the player's side, and no custom UI files to ship with the server.
+
+![Main menu](docs/screenshots/menu-main.jpg)
+
+*Main menu: current race and its level, total level across all races, skill spending, the
+ability reference and auto-distribution for players who would rather not think about builds.*
+
+![Skill menu](docs/screenshots/menu-skills.jpg)
+
+*Spending points on the Shapeshifter: two passives, one active, one ultimate — four ranks
+each, sixteen points in total. The ultimate unlocks at level 6.*
+
+![Race info](docs/screenshots/race-info.jpg)
+
+*`!wcinfo` prints your race, level, XP and what every rank actually does — exact numbers,
+not flavour text.*
+
+---
+
 ## Features
 
 - **Race system with reflection-based registration.** A new class deriving from `Race` is picked
